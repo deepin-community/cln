@@ -1,0 +1,9 @@
+Document: libcln-dev
+Title: CLN (Class Library for Numbers) documentation
+Author: Bruno Haible
+Abstract: CLN is a C++ library for computations with all kinds of numbers.
+Section: Science/Mathematics
+
+Format: HTML
+Index: /usr/share/doc/libcln-dev/cln.html
+Files: /usr/share/doc/libcln-dev/*.html

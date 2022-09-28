@@ -1,0 +1,471 @@
+cln (1.3.6-4) unstable; urgency=low
+
+  * Fix FTBS on sparc64, missed in last upload.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Mon, 06 Jan 2020 16:33:39 +0100
+
+cln (1.3.6-3) unstable; urgency=low
+
+  * Fix FTBS on architectures where ASM is broken.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Mon, 06 Jan 2020 02:24:51 +0100
+
+cln (1.3.6-2) unstable; urgency=low
+
+  * Re-debianize the package from scratch:
+    + Bump debhelper compat to 12, but not debhelper depends to allow backports.
+    + Replace debian/rules with simpler file, using dh.
+    + Install in the multiarch libdir /usr/lib/<triplet>/, to allow for cross
+      builds of reverse dependencies. (Closes: #947247)
+    + Add debian/watch.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Sun, 05 Jan 2020 13:58:32 +0100
+
+cln (1.3.6-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Thu, 05 Dec 2019 22:14:21 +0100
+
+cln (1.3.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Sun, 17 Nov 2019 22:39:53 +0100
+
+cln (1.3.5~beta1-1) experimental; urgency=low
+
+  * Check to see if current git tree is ready for prime time.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Sun, 03 Nov 2019 22:31:27 +0100
+
+cln (1.3.4-5) unstable; urgency=low
+
+  * Reduce dependencies of -dev package. (Closes: #942003)
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Sat, 12 Oct 2019 12:01:10 +0200
+
+cln (1.3.4-4) unstable; urgency=low
+
+  * Trigger re-build, to pick up riscv64 patches. (Closes: #897598)
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Fri, 04 May 2018 23:03:32 +0200
+
+cln (1.3.4-3+0.riscv64.1) unreleased; urgency=medium
+
+  * Non-maintainer upload.
+  * riscv64: add support for arch
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Wed, 02 May 2018 22:09:35 +0200
+
+cln (1.3.4-3) unstable; urgency=low
+
+  * Apply upstream patch for MIPS release 6 port. (Closes: #893168)
+    Thanks to YunQiang Su for the patch.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Mon, 19 Mar 2018 17:57:06 +0100
+
+cln (1.3.4-2) unstable; urgency=medium
+
+  * Trigger re-build with current toolchain.
+  * Fix FTCBFS: (Closes: #839565)
+    + Pass --build and --host to ./configure.
+    + Support DEB_BUILD_OPTIONS=nocheck.
+    Thanks to Helmut Grohne for the patch.
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Sun, 02 Oct 2016 10:15:58 +0200
+
+cln (1.3.4-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #748325)
+  * Don't remove all files under debian/. (Closes: #749848)
+
+ -- Richard B. Kreckel <kreckel@ginac.de>  Mon, 13 Oct 2014 22:27:51 +0200
+
+cln (1.3.3-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix arm64 build.
+    Thanks Peter Green for patch.
+    (Closes: #757623)
+
+ -- Hector Oron <zumbi@debian.org>  Wed, 17 Sep 2014 23:02:12 +0000
+
+cln (1.3.3-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #712361, #700634)
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 21 Jul 2013 23:04:56 +0200
+
+cln (1.3.2-1.2+x32) unreleased; urgency=low
+
+  * Fix autoconf test checking whether mp_limb_t needs to be long long,
+    which is needed on x32.
+
+ -- Daniel Schepler <schepler@debian.org>  Fri, 15 Feb 2013 07:48:38 -0800
+
+cln (1.3.2-1.2+x32) unreleased; urgency=low
+
+  * Non-maintainer upload.
+  * Fix compilation on s390x and sparc64.  Thanks to Aurelien Jarno.
+    (Closes: #639494)
+
+ -- Philipp Kern <pkern@debian.org>  Sun, 01 Apr 2012 10:00:49 +0000
+
+cln (1.3.2-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Stop shipping .la files. Closes: #633169.
+
+ -- Regis Boudin <regis@debian.org>  Tue, 04 Oct 2011 19:29:54 +0100
+
+cln (1.3.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 08 May 2011 22:52:43 +0200
+
+cln (1.3.1-2.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+    - Enable CPPFLAGS="-DNO_ASM" on arm* and sparc* (Closes: #604792)
+  * Bump standards version to 3.9.1
+
+ -- Hector Oron <zumbi@debian.org>  Sun, 03 Apr 2011 13:12:11 +0000
+
+cln (1.3.1-2.1) unstable; urgency=low
+
+  * NMU.  Change dependencies: libgmp3-dev --> libgmp-dev.
+
+ -- Steve M. Robbins <smr@debian.org>  Wed, 16 Mar 2011 21:04:27 -0500
+
+cln (1.3.1-2) unstable; urgency=low
+
+  * debian/copyright: Clarify license (GPL v2).
+  * debian/compat: debhelper compatibility version 6.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 20 Dec 2009 21:39:47 +0100
+
+cln (1.3.1-1) unstable; urgency=low
+
+  * New upstream release; closes: #545922.
+  * debhelper compatibility version 5.
+  * Run install-docs instead of install-info from postinst/prerm scripts.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu, 24 Sep 2009 10:09:23 +0200
+
+cln (1.3.0-2) unstable; urgency=low
+
+  * Leave out /usr/share/info/dir.gz; closes: #535323.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu, 02 Jul 2009 19:19:56 +0200
+
+cln (1.3.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 30 Jun 2009 23:57:24 +0200
+
+cln (1.3.0~beta2-1) experimental; urgency=low
+
+  * Check again, fixing the Sparc breakage.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 14 Jun 2009 21:54:12 +0200
+
+cln (1.3.0~beta1-1) experimental; urgency=low
+
+  * Check to see if current git tree is ready for prime time; closes: #504971.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Fri, 03 May 2009 22:45:25 +0200
+
+cln (1.2.2-2) unstable; urgency=low
+
+  * Arm eabi needs -DNO_ASM; closes: #475347.
+  * Updated to standards-version 3.8.0.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Wed, 18 Jun 2008 22:39:16 +0100
+
+cln (1.2.2-1) unstable; urgency=low
+
+  * New upstream release; closes: #473494.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 05 Apr 2008 23:11:27 +0100
+
+cln (1.2.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Mon, 24 Mar 2008 22:15:45 +0100
+
+cln (1.2.0-1) unstable; urgency=low
+
+  * New upstream release:
+    - Support for huge numbers; closes: #286266.
+    - Changed pi to truncate output a little bit; closes: #310385.
+    - incremented soname version; closes: #430248.
+  * Make libcln-dev depend on libgmp3-dev; closes: #412103.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 19 Jan 2008 22:07:52 +0100
+
+cln (1.2.0~beta4-1) experimental; urgency=low
+
+  * Check current CVS again.
+  * Add -DNO_ASM to CPPFLAGS on Sparc until miscompilation is sorted out.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 06 Jan 2008 18:08:15 +0100
+
+cln (1.2.0~beta3-1) experimental; urgency=low
+
+  * Check current CVS again.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 04 Dec 2007 09:37:45 +0100
+
+cln (1.2.0~beta2-1) experimental; urgency=low
+
+  * Check build stuff again.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 07 Oct 2007 22:11:48 +0200
+
+cln (1.2.0~beta1-1) experimental; urgency=low
+
+  * Check to see if current CVS is ready for prime time.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 18 Sep 2007 23:38:02 +0200
+
+cln (1.1.13-2) unstable; urgency=low
+
+  * Apply workaround for m68k build failure; closes: #388000.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Wed, 20 Sep 2006 22:53:21 +0200
+
+cln (1.1.13-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 08 Aug 2006 22:50:58 +0200
+
+cln (1.1.12-2) unstable; urgency=low
+
+  * Apply patch from CVS: Fix 64-bit brokenness due to buggy configure.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Mon, 07 Aug 2006 23:59:01 +0200
+
+cln (1.1.12-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 06 Aug 2006 11:29:31 +0200
+
+cln (1.1.11-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Wed, 23 Oct 2005 22:24:52 +0100
+
+cln (1.1.10-1) unstable; urgency=low
+
+  * New upstream release...
+  * ...breaking binary compatibility, so renamed the package to libcln4.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 22 Oct 2005 22:55:13 +0200
+
+cln (1.1.9-6) unstable; urgency=low
+
+  * Add a patch to fix the segfault on startup on mips and mipsel.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 30 Aug 2005 22:20:58 +0200
+
+cln (1.1.9-5) unstable; urgency=low
+
+  * Add a patch to mark the library's stack as nonexecutable; closes: #321748.
+  * Reduce optimization for ia64 and m68k. This should make it build again.
+  * Explicitly acknowledge NMU; closes: #318210, #314831.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Mon, 15 Aug 2005 22:58:08 +0200
+
+cln (1.1.9-4) unstable; urgency=low
+
+  * Sigh, I could've sworn that I applied the patch from upstream in 1.1.9-2.
+  Apparently, I'm overworked.  Here it goes again; closes: #320040.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 09 Aug 2005 23:19:12 +0200
+
+cln (1.1.9-3) unstable; urgency=low
+
+  * Oops, forgot to update debian/shlibs from NMU; closes: #321531.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun, 07 Aug 2005 22:24:48 +0200
+
+cln (1.1.9-2) unstable; urgency=low
+
+  * Use ${shlibs:Depends} instead of hard-wired dependencies; closes: #319556.
+  * Include patch by Andreas Jochens for PPC64; closes: #320040.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 04 Aug 2005 22:35:18 +0200
+
+cln (1.1.9-1.1) unstable; urgency=low
+
+  * NMU, coordinated with Maintainer
+  * Add forward declaration of cl_string needed by gcc-4 (Closes: #314831)
+  * debian/control: add c2 to library package name
+  * Build against new libgmp using gcc-4 ABI (Closes: #318210)
+
+ -- Martin Waitz <tali@debian.org>  Tue, 19 Jul 2005 10:26:24 +0200
+
+cln (1.1.9-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Wed, 03 Nov 2004 22:35:11 +0100
+
+cln (1.1.8-2) unstable; urgency=low
+
+  * Include a patch from CVS to make it work on mipsel; closes: #140647.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Mon,  6 Sep 2004 21:48:35 +0200
+
+cln (1.1.8-1) unstable; urgency=low
+
+  * New upstream release; closes: #256312.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu,  1 Jul 2004 22:38:08 +0100
+
+cln (1.1.7-1) unstable; urgency=low
+
+  * New upstream release; closes: #246319.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sun,  2 May 2004 22:53:35 +0100
+
+cln (1.1.6-1) unstable; urgency=low
+
+  * New upstream release...
+  * ...breaking binary compatibility, so renamed the package to libcln3.
+  * More detailed extended description for cln-dev; closes: #210102.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 10 Jan 2004 23:03:22 +0100
+
+cln (1.1.5-2) unstable; urgency=low
+
+  * Registered documentation with doc-base; closes: #99192.
+  * Changed section of libcln-dev to libdevel.
+  * Changed section of libcln2 to libs.
+  * Updated to standards-version 3.5.10.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 27 May 2003 10:16:09 +0200
+
+cln (1.1.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Richard Kreckel <kreckel@ginac.de>  Fri, 28 Feb 2003 15:11:12 +0100
+
+cln (1.1.4-1) unstable; urgency=low
+
+  * New upstream release
+    (Debian and other bugfixes).
+
+ -- Richard Kreckel <kreckel@ginac.de>  Fri,  4 Jan 2002 15:17:07 +0100
+
+cln (1.1.3-3) unstable; urgency=low
+
+  * Manually added __s390__ section to include/cln/config.h.in such that
+    packages compiling against CLN on these architectures do not have to
+    define this on the command line.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 29 Dec 2001 18:28:50 +0100
+
+cln (1.1.3-2) unstable; urgency=low
+
+  * Backported support for s390 from upstream CVS.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 29 Dec 2001 18:28:35 +0100
+
+cln (1.1.3-1) unstable; urgency=low
+
+  * New bugfix release from upstream.
+  * Renamed the package to libcln2 and libcln-dev to match policy.
+  * Segregate the pi binary into a separate Debian package, for same reason.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Wed,  7 Nov 2001 16:18:58 +0100
+
+cln (1.1.2-1) unstable; urgency=low
+
+  * New upstream release; closes: #104906.
+  * Remove build-dependency on libstdc++-dev; closes: #105953.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 25 Jul 2001 13:26:36 +0200
+
+cln (1.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu, 31 May 2001 18:46:31 +0200
+
+cln (1.1.0-5) unstable; urgency=low
+
+  * Fixed some missing !defined(NO_ASM) preprocessor directives in
+    upstream's CVS and backported them to the Debian package in order to...
+  * ...switch them on by debian/rules if we are on the ARM architecture;
+    closes: #94097.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Sat, 21 Apr 2001 15:46:31 +0200
+
+cln (1.1.0-4) unstable; urgency=low
+
+  * Rebuild again (*ugh*) using binutils 2.11.90, since the old library
+    occassionally resulted in ld-so assertions, PLT alloc failures and
+    more scary stuff like that.  Building large C++ libraries using
+    binutils 2.9 is a Kamikaze combination!  (This seems to make a lot of
+    sense, since gcc-2.95.3 now depends on those new binutils anyways.)
+  * Changed the dependencies to reflect this problem.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu, 12 Apr 2001 17:52:20 +0200
+
+cln (1.1.0-3) unstable; urgency=low
+
+  * Rebuild using woody's gcc-2.95.3 since some people were reporting strange
+    problems with the old libraries that were build using gcc-2.95.3.
+  * Make install-info perform quiet.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Tue, 10 Apr 2001 13:40:15 +0200
+
+cln (1.1.0-2) unstable; urgency=low
+
+  * As requested by installer, change priority from extra to optional.
+  * Fix miscompilation on Sparc by adjusting CXXFLAGS for this architecture.
+  * Just in case somebody decides to go for ia64: backported a one-line
+    essential (and tested) architecture-specific patch from the CVS version.
+  * As a gimmick, add Bruno Haible's pi example. (They'll put it into SuSE 7.2
+    and we don't want to hear complaints "but SuSE has this...", do we?!)
+
+ -- Richard Kreckel <kreckel@ginac.de>  Thu, 14 Mar 2001 17:04:58 +0100
+
+cln (1.1.0-1) unstable; urgency=low
+
+  * New upstream source closes #84290.
+  * added dependency on libgmp3.
+  * added Build-Depends section closes #70274.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Fri, 14 Jan 2000 15:20:02 +0100
+
+cln (1.0.3-1) unstable; urgency=low
+
+  * New upstream source.
+  * New upstream maintainer <kreckel@ginac.de>.
+  * New Debian maintainer <kreckel@ginac.de>.
+  * Entirely repackaged.
+
+ -- Richard Kreckel <kreckel@ginac.de>  Fri, 14 Jan 2000 15:20:02 +0100
+
+cln (0.98-1) unstable; urgency=low
+
+  * New upstream source
+
+ -- John Lapeyre <lapeyre@physics.arizona.edu>  Sat,  1 Aug 1998 15:40:49 -0700
+
+
+cln (0.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- John Lapeyre <lapeyre@physics.arizona.edu>  Mon, 27 Jul 1998 17:06:36 -0700

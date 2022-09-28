@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# ARM: CLN's assembler support is not working properly (it was only
+# 'theoretically' ported by copying from code that had once worked in
+# CLISP under BSD). Same for armel, armhf.
+# HPPA: Assembler support is not working properly.  Somebody needs to
+# investigate but currently I don't have the inspiration for fixing
+# things on exotic architectures.
+# SPARC: With some versions of GCC, there are apparently problems in
+# passing return values in %g1.
+ASM_BROKEN_ARCHS = hppa sparc sparc64 arm armel armhf
+
+ifneq (,$(filter ${DEB_HOST_ARCH}, ${ASM_BROKEN_ARCHS}))
+  export DEB_CPPFLAGS_MAINT_APPEND = -DNO_ASM
+endif
+
+%:
+	dh $@
+
+# Invoke html target in addition to all the default arguments given by dh_auto_build:
+override_dh_auto_build:
+	dh_auto_build -- html
+
+# Don't install upstream ChangeLog (it's only a dummy):
+override_dh_installchangelogs:
+	dh_installchangelogs --exclude=ChangeLog
+
+# Add some of CLN's files to /usr/share/doc/*/:
+override_dh_installdocs:
+	dh_installdocs -- NEWS README

@@ -1,0 +1,4 @@
+usr/include/*
+usr/lib/*/libcln.a
+usr/lib/*/libcln.so
+usr/lib/*/pkgconfig/cln.pc

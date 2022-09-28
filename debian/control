@@ -1,0 +1,55 @@
+Source: cln
+Section: math
+Priority: optional
+Maintainer: Richard Kreckel <kreckel@ginac.de>
+Build-Depends: debhelper (>= 9), libgmp-dev, texinfo, dh-autoreconf
+Standards-Version: 4.4.1
+Homepage: http://www.ginac.de/CLN/
+
+Package: libcln6
+Architecture: any
+Section: libs
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: cln
+Suggests: pi
+Description: Class Library for Numbers (C++)
+ CLN is a library for computations with all kinds of numbers.  It has a
+ rich set of number classes, including integers (with unlimited precision),
+ reals with various precisions (including unlimited), rationals, complex
+ numbers and polynomials. The kernel is written in assembly language. 
+ It uses garbage  collection (automatic, without imposing any burden on the
+ main application). Many efficient algorithms (i.e. for all transcendental 
+ functions) are implemented.
+
+Package: libcln-dev
+Architecture: any
+Section: libdevel
+Depends: libcln6 (= ${binary:Version}), libgmp-dev, ${misc:Depends}
+Replaces: cln-dev
+Provides: cln-dev
+Conflicts: cln-dev
+Recommends: info | info-browser
+Description: Development library for Class Library for Numbers (c++)
+ CLN is a library for computations with all kinds of numbers.  It has a
+ rich set of number classes, including integers (with unlimited precision),
+ reals with various precisions (including unlimited), rationals, complex
+ numbers and polynomials. The kernel is written in assembly language. 
+ It uses garbage  collection (automatic, without imposing any burden on the
+ main application). Many efficient algorithms (i.e. for all transcendental 
+ functions) are implemented.
+ .
+ This package provides header files, a static library plus a manual.
+
+Package: pi
+Architecture: any
+Section: math
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Compute Archimedes' constant Pi to arbitrary precision
+ This program computes Archimedes' constant Pi to arbitrary precision.
+ It is extremely fast and the precision is only limited by your machine's
+ main memory.
+ .
+ This is a teaser for the CLN library, to which the actual computation is
+ delegated.  You may use these decimal digits as random digits or search
+ them for hidden messages.  :-)

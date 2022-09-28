@@ -1,0 +1,2 @@
+version=4
+https://www.ginac.de/CLN/ cln-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
