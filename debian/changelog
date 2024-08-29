@@ -1,3 +1,9 @@
+cln (1.3.6-4deepin1) unstable; urgency=medium
+
+  * Add loongarch64 support.
+
+ -- xiangzelong <xiangzelong@deepin.org>  Thu, 29 Aug 2024 14:12:15 +0800
+
 cln (1.3.6-4) unstable; urgency=low
 
   * Fix FTBS on sparc64, missed in last upload.
