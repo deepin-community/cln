@@ -3,7 +3,7 @@ Section: math
 Priority: optional
 Maintainer: Richard Kreckel <kreckel@ginac.de>
 Build-Depends: debhelper (>= 9), libgmp-dev, texinfo, dh-autoreconf
-Standards-Version: 4.4.1
+Standards-Version: 4.6.2
 Homepage: http://www.ginac.de/CLN/
 
 Package: libcln6
