@@ -1,5 +1,5 @@
-# host-cpu-c-abi.m4 serial 12
-dnl Copyright (C) 2002-2019 Free Software Foundation, Inc.
+# host-cpu-c-abi.m4 serial 16
+dnl Copyright (C) 2002-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -211,7 +211,7 @@ changequote([,])dnl
          # be generating 64-bit code.
          AC_COMPILE_IFELSE(
            [AC_LANG_SOURCE(
-              [[#if defined __powerpc64__ || defined _ARCH_PPC64
+              [[#if defined __powerpc64__ || defined __LP64__
                  int ok;
                 #else
                  error fail
@@ -382,6 +382,9 @@ EOF
 #ifndef __ia64__
 #undef __ia64__
 #endif
+#ifndef __loongarch64__
+#undef __loongarch64__
+#endif
 #ifndef __m68k__
 #undef __m68k__
 #endif
@@ -457,18 +460,22 @@ EOF
 
 
 dnl Sets the HOST_CPU_C_ABI_32BIT variable to 'yes' if the C language ABI
-dnl (application binary interface) is a 32-bit one, or to 'no' otherwise.
+dnl (application binary interface) is a 32-bit one, to 'no' if it is a 64-bit
+dnl one, or to 'unknown' if unknown.
 dnl This is a simplified variant of gl_HOST_CPU_C_ABI.
 AC_DEFUN([gl_HOST_CPU_C_ABI_32BIT],
 [
   AC_REQUIRE([AC_CANONICAL_HOST])
   AC_CACHE_CHECK([32-bit host C ABI], [gl_cv_host_cpu_c_abi_32bit],
     [if test -n "$gl_cv_host_cpu_c_abi"; then
+       dnl gl_HOST_CPU_C_ABI has already been run. Use its result.
        case "$gl_cv_host_cpu_c_abi" in
          i386 | x86_64-x32 | arm | armhf | arm64-ilp32 | hppa | ia64-ilp32 | mips | mipsn32 | powerpc | riscv*-ilp32* | s390 | sparc)
            gl_cv_host_cpu_c_abi_32bit=yes ;;
-         *)
+         x86_64 | alpha | arm64 | aarch64c | hppa64 | ia64 | mips64 | powerpc64 | powerpc64-elfv2 | riscv*-lp64* | s390x | sparc64 )
            gl_cv_host_cpu_c_abi_32bit=no ;;
+         *)
+           gl_cv_host_cpu_c_abi_32bit=unknown ;;
        esac
      else
        case "$host_cpu" in
@@ -491,6 +498,14 @@ AC_DEFUN([gl_HOST_CPU_C_ABI_32BIT],
          | tic6x \
          | xtensa* )
            gl_cv_host_cpu_c_abi_32bit=yes
+           ;;
+
+         # CPUs that only support a 64-bit ABI.
+changequote(,)dnl
+         alpha | alphaev[4-8] | alphaev56 | alphapca5[67] | alphaev6[78] \
+         | mmix )
+changequote([,])dnl
+           gl_cv_host_cpu_c_abi_32bit=no
            ;;
 
 changequote(,)dnl
@@ -521,7 +536,7 @@ changequote([,])dnl
              [gl_cv_host_cpu_c_abi_32bit=yes])
            ;;
 
-         arm* | aarch64 )
+         arm* | aarch64 | aarch64c )
            # Assume arm with EABI.
            # On arm64 systems, the C compiler may be generating code in one of
            # these ABIs:
@@ -594,7 +609,7 @@ changequote([,])dnl
            # be generating 64-bit code.
            AC_COMPILE_IFELSE(
              [AC_LANG_SOURCE(
-                [[#if defined __powerpc64__ || defined _ARCH_PPC64
+                [[#if defined __powerpc64__ || defined __LP64__
                    int ok;
                   #else
                    error fail
@@ -654,7 +669,7 @@ changequote([,])dnl
            ;;
 
          *)
-           gl_cv_host_cpu_c_abi_32bit=no
+           gl_cv_host_cpu_c_abi_32bit=unknown
            ;;
        esac
      fi
